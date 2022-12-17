@@ -1,0 +1,59 @@
+.App {
+  background: lightgray;
+  height: 100vh;
+}
+
+.add-column {
+  display: flex;
+  justify-content: center\;;
+}
+
+.drag-container {
+  border-color: red;
+  border: solid;
+}
+
+.board {
+  padding: 60px 160px;
+  /* display: flex; */
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+.board-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 50px;
+}
+
+.column {
+  background: #ffffff;
+  width: 400px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button {
+  cursor: pointer;
+  padding: 5px 10px;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+}
+
+.mark_complete {
+  background: greenyellow;
+}
+
+.mark_pending {
+  background: tomato;
+  color: #ffffff;
+}
