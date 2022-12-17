@@ -21,11 +21,10 @@ const TrelloBoard = () => {
     },
   ]);
 
+  console.log(`items:`, items);
+
   const [newTask, setNewTask] = useState("");
   const [updateTodo, setUpdateTodo] = useState("");
-
-  // Delete task
-  const handleDeleteTask = (id) => {};
 
   // Change task for update task
   const handleChangeTask = (e) => {};
@@ -55,9 +54,8 @@ const TrelloBoard = () => {
         setItems={setItems}
       />
       <div className="board-container">
-        <Column items={items} updateStatus={updateStatus} />
+        <Column items={items} setItems={setItems} updateStatus={updateStatus} />
 
-        {/* <Column items={items} updateStatus={updateStatus} /> */}
         <InProgressColumn items={items} updateStatus={updateStatus} />
         <DoneColumn items={items} updateStatus={updateStatus} />
       </div>

@@ -1,6 +1,11 @@
 import React from "react";
 
-const Column = ({ items, updateStatus }) => {
+const Column = ({ items, setItems, updateStatus }) => {
+  // Delete task
+  const handleDeleteTask = (id) => {
+    let newTasks = items.filter((task) => task.id !== id);
+    setItems(newTasks);
+  };
   return (
     <div className="column">
       <h2>New</h2>
@@ -16,6 +21,9 @@ const Column = ({ items, updateStatus }) => {
                   onClick={() => updateStatus(item.id, "pending")}
                 >
                   Mark in Progress
+                </button>
+                <button onClick={() => handleDeleteTask(item.id)}>
+                  Delete task
                 </button>
               </p>
             );
