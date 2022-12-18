@@ -10,15 +10,14 @@
 
 .board {
   padding: 60px 160px;
-  /* display: flex; */
-  /* align-items: center; */
+
   justify-content: space-between;
 }
 
 .board-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   flex-direction: row;
   margin-top: 50px;
 }
