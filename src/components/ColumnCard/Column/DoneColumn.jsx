@@ -1,6 +1,6 @@
 import React from "react";
 
-const DoneColumn = ({ items, updateStatus }) => {
+const DoneColumn = ({ items, updateStatus, handleDeleteTask }) => {
   return (
     <div className="column">
       <h2>Done:</h2>
@@ -10,12 +10,19 @@ const DoneColumn = ({ items, updateStatus }) => {
             return (
               <p className="item" key={item.id}>
                 {item.title}{" "}
-                <button
+                {/* <button
                   className="mark_pending"
                   key={item.id}
                   onClick={() => updateStatus(item.id, "pending")}
                 >
                   Mark as Progress
+                </button> */}
+                <button
+                  className="delete-task"
+                  key={item.id}
+                  onClick={() => handleDeleteTask(item.id)}
+                >
+                  Delete Task
                 </button>
               </p>
             );

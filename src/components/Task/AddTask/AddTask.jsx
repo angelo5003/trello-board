@@ -25,7 +25,7 @@ const AddTask = ({ newTask, setNewTask, items, setItems }) => {
           onChange={(e) => setNewTask(e.target.value)}
           placeholder="Add a task"
         />
-        <button type="submit" onClick={handleAddTask}>
+        <button className="add-task" type="submit" onClick={handleAddTask}>
           Add a task
         </button>
       </form>

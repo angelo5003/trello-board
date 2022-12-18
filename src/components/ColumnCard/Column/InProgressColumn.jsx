@@ -1,6 +1,6 @@
 import React from "react";
 
-const InProgressColumn = ({ items, updateStatus }) => {
+const InProgressColumn = ({ items, updateStatus, handleDeleteTask }) => {
   return (
     <div className="column">
       <h2>In Progress:</h2>
@@ -15,7 +15,14 @@ const InProgressColumn = ({ items, updateStatus }) => {
                   key={item.id}
                   onClick={() => updateStatus(item.id, "completed")}
                 >
-                  Mark Complete
+                  Complete
+                </button>
+                <button
+                  className="delete-task"
+                  key={item.id}
+                  onClick={() => handleDeleteTask(item.id)}
+                >
+                  Delete Task
                 </button>
               </p>
             );

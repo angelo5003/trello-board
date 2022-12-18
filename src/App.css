@@ -8,11 +8,6 @@
   justify-content: center\;;
 }
 
-.drag-container {
-  border-color: red;
-  border: solid;
-}
-
 .board {
   padding: 60px 160px;
   /* display: flex; */
@@ -51,9 +46,48 @@ button {
 
 .mark_complete {
   background: greenyellow;
+  color: #000;
 }
 
 .mark_pending {
-  background: tomato;
-  color: #ffffff;
+  background: #ff8c00;
+  color: #000;
+}
+
+.add-task {
+  background: #008000;
+  color: #fff;
+  margin-left: 5px;
+}
+
+.update-task-container {
+  display: flex;
+  align-items: center;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.edit-task {
+  background: #778899;
+  color: #fff;
+}
+
+.update-task-btn {
+  margin-right: 5px;
+  background: #008000;
+  color: #fff;
+}
+
+.cancel-task-btn {
+  background: #ef0107;
+  color: #fff;
+}
+
+.delete-task {
+  background: #ef0107;
+  color: #fff;
 }

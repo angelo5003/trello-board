@@ -7,7 +7,7 @@ const UpdateTask = ({
   handleCancelTaskUpdate,
 }) => {
   return (
-    <div>
+    <div className="update-task-container">
       <div>
         <input
           type="text"
@@ -15,9 +15,13 @@ const UpdateTask = ({
           onChange={(e) => handleChangeTask(e)}
         />
       </div>
-      <div>
-        <button onClick={handleUpdateTask}>Update</button>
-        <button onClick={handleCancelTaskUpdate}>Cancel</button>
+      <div className="button-container">
+        <button className="update-task-btn" onClick={handleUpdateTask}>
+          Update
+        </button>
+        <button className="cancel-task-btn" onClick={handleCancelTaskUpdate}>
+          Cancel
+        </button>
       </div>
     </div>
   );

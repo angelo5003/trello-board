@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Column from "../ColumnCard/Column/Column";
 import InProgressColumn from "../ColumnCard/Column/InProgressColumn";
 import DoneColumn from "../ColumnCard/Column/DoneColumn";
 import AddTask from "../Task/AddTask/AddTask";
+// import CreateColumn from "../ColumnCard/CreateColumn/CreateColumn";
 
 import UpdateTask from "../Task/UpdateTask/UpdateTask";
 
 const TrelloBoard = () => {
   // const [newColumn, setNewColumn] = useState([]);
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("newCreatedTask")) || []
+  ); // get the newly created item from localStorage
 
-  const [items, setItems] = useState([]);
+  useEffect(() => {
+    localStorage.setItem("newCreatedTask", JSON.stringify(items));
+  }, [items]); // add the newly created item to the localStorage
 
   const [newTask, setNewTask] = useState("");
   const [updateTodo, setUpdateTodo] = useState("");
-  console.log(`updateTodo title:`, updateTodo);
 
   // Change task for update task
   const handleChangeTask = (e) => {
@@ -31,6 +36,12 @@ const TrelloBoard = () => {
   // Cancel update Task
   const handleCancelTaskUpdate = () => {
     setUpdateTodo("");
+  };
+
+  // Delete task
+  const handleDeleteTask = (id) => {
+    let newTasks = items.filter((task) => task.id !== id);
+    setItems(newTasks);
   };
 
   // Update tasks based on their status, (new, progress, completed)
@@ -72,10 +83,19 @@ const TrelloBoard = () => {
           updateStatus={updateStatus}
           updateTodo={updateTodo}
           setUpdateTodo={setUpdateTodo}
+          handleDeleteTask={handleDeleteTask}
         />
 
-        <InProgressColumn items={items} updateStatus={updateStatus} />
-        <DoneColumn items={items} updateStatus={updateStatus} />
+        <InProgressColumn
+          items={items}
+          updateStatus={updateStatus}
+          handleDeleteTask={handleDeleteTask}
+        />
+        <DoneColumn
+          items={items}
+          updateStatus={updateStatus}
+          handleDeleteTask={handleDeleteTask}
+        />
       </div>
     </div>
   );
