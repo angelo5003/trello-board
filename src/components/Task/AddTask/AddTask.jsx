@@ -9,11 +9,10 @@ const AddTask = ({ newTask, setNewTask, items, setItems }) => {
   // Add task
   const handleAddTask = () => {
     if (newTask) {
-      let newTaskId = uuid();
-      let newCreatedTask = { id: newTaskId, title: newTask, status: "new" };
+      const newTaskId = uuid();
+      const newCreatedTask = { id: newTaskId, title: newTask, status: "new" };
       setItems([...items, newCreatedTask]);
       setNewTask("");
-      console.log(`newCreatedTask ID:`, newCreatedTask);
     }
   };
 

@@ -1,11 +1,12 @@
 import React from "react";
 
-const Column = ({ items, setItems, updateStatus }) => {
+const Column = ({ items, setItems, updateStatus, setUpdateTodo }) => {
   // Delete task
   const handleDeleteTask = (id) => {
     let newTasks = items.filter((task) => task.id !== id);
     setItems(newTasks);
   };
+
   return (
     <div className="column">
       <h2>New</h2>
@@ -14,7 +15,9 @@ const Column = ({ items, setItems, updateStatus }) => {
           if (item && item.status === "new")
             return (
               <p className="item" key={item.id}>
-                {item.title}{" "}
+                {item.title}
+                <button onClick={() => setUpdateTodo(item)}>Edit</button>
+
                 <button
                   className="mark_pending"
                   key={item.id}
