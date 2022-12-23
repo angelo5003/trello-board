@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
+
 import Column from "../ColumnCard/Column/Column";
 import InProgressColumn from "../ColumnCard/Column/InProgressColumn";
 import DoneColumn from "../ColumnCard/Column/DoneColumn";
 import AddTask from "../Task/AddTask/AddTask";
-// import CreateColumn from "../ColumnCard/CreateColumn/CreateColumn";
 
 import UpdateTask from "../Task/UpdateTask/UpdateTask";
 
 const TrelloBoard = () => {
-  // const [newColumn, setNewColumn] = useState([]);
+  const [newTask, setNewTask] = useState("");
+  const [updateTodo, setUpdateTodo] = useState("");
+
   const [items, setItems] = useState(
     JSON.parse(localStorage.getItem("newCreatedTask")) || []
   ); // get the newly created item from localStorage
@@ -16,9 +18,6 @@ const TrelloBoard = () => {
   useEffect(() => {
     localStorage.setItem("newCreatedTask", JSON.stringify(items));
   }, [items]); // add the newly created item to the localStorage
-
-  const [newTask, setNewTask] = useState("");
-  const [updateTodo, setUpdateTodo] = useState("");
 
   // Change task for update task
   const handleChangeTask = (e) => {
@@ -59,7 +58,6 @@ const TrelloBoard = () => {
 
   return (
     <div className="board">
-      {/* <CreateColumn newColumn={newColumn} setNewColumn={setNewColumn} /> */}
       {updateTodo && updateTodo ? (
         <UpdateTask
           updateTodo={updateTodo}
@@ -79,7 +77,6 @@ const TrelloBoard = () => {
       <div className="board-container">
         <Column
           items={items}
-          setItems={setItems}
           updateStatus={updateStatus}
           updateTodo={updateTodo}
           setUpdateTodo={setUpdateTodo}
@@ -91,11 +88,7 @@ const TrelloBoard = () => {
           updateStatus={updateStatus}
           handleDeleteTask={handleDeleteTask}
         />
-        <DoneColumn
-          items={items}
-          updateStatus={updateStatus}
-          handleDeleteTask={handleDeleteTask}
-        />
+        <DoneColumn items={items} handleDeleteTask={handleDeleteTask} />
       </div>
     </div>
   );
